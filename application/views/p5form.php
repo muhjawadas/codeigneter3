@@ -12,8 +12,9 @@ defined('BASEPATH') OR exit(    'No direct script access allowed');
 <body>
     <div class="ui top menu">
         <div class="ui container">
-            <a class="active item" href="/p5">Home</a>
-            <a class="item" href="/p5/form">Form</a>
+            <a class="item" href="/p5">Home</a>
+            <a class="active item" href="/p5/form">Form</a>
+            <a class="item" href="/p5/form_b">Form Boostrap</a>
         </div>
     </div>
     <div class="pusher">
@@ -31,7 +32,7 @@ defined('BASEPATH') OR exit(    'No direct script access allowed');
                         <td><?=form_textarea( array("name"=>"address", "class"=>"ui input large") )?></td>
                     </tr>
                     <tr>
-                        <td>Phone</td>
+                        <td>No HP</td>
                         <td><?=form_input( array("name"=>"phone", "class"=>"ui input large") )?></td>
                     </tr>
                     <tr>

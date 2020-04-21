@@ -12,4 +12,9 @@ public function form() { //form
     $this->load->helper('form');
     $this->load->view('p5form',$data);
 } 
+public function form_b() { //form
+    $data['title'] = "Form_Boostrap";
+    $this->load->helper('form');
+    $this->load->view('p5form-b',$data);
+} 
 }

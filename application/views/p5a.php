@@ -14,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="ui container">
             <a class="active item" href="/p5">Home</a>
             <a class="item" href="p5/form">Form</a>
+            <a class="item" href="p5/form_b">Form Boostrap</a>
         </div>
     </div>
     <div class="pusher">

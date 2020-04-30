@@ -14,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="ui container">
             <a class="item" href="/p6">Home</a>
             <a class="active item" href="/p6/form">Form</a>
+            <a class="item" href="/p7/logout">Logout</a>
         </div>
     </div>
     <div class="pusher">

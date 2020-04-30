@@ -18,5 +18,10 @@ class P6_model extends CI_Model {
         );
         return $this->db->insert('contacts', $data_to_insert);
     }
+
+    public function delete($id) {
+        $this->db->where('id', $id);
+        return $this->db->delete('contacts');
+    }
 }
 ?>

@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Name</th>
                             <th>Address</th>
                             <th>Phone</th> 
+                            <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <td data-label="Name"><?=$data->name?></td>
                             <td data-label="Address"><?=$data->address?></td>
                             <td data-label="Phone"><?=$data->phone?></td>
+                            <td data-label="Options">
+                                <a class="ui red button" href="/p7/delete/<?=$data->id?>">
+                                    <i class="trash icon"></i>
+                                    Delete
+                                </a>
+                            </td>
                         </tr>
                         <?php
                             }

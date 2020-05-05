@@ -21,19 +21,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="ui two column grid">
             <div class="two wide column"></div>
             <div class="eight wide column">
-                <?=form_open("/p6/save")?>
+                <?=form_open("/p6/save", array("class" => "ui form")); ?>
+                <?= form_input( array("name" => "id", "type" => "hidden", "value" => isset($id) ? $id : "") ); ?>
                 <table class="ui celled table">
                     <tr>
                         <td>Name</td>
-                        <td><?=form_input( array("name"=>"name", "class"=>"ui input large", "style"=>"width:550px") )?></td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td><?=form_input( array("name"=>"address", "class"=>"ui input large", "style"=>"width:550px") )?></td>
+                        <td>
+                            <div class="field">
+                                <?=form_input( array("name"=>"name", "class"=>"ui input large", "style"=>"width:550px", "value" => isset($contacts) ? $contacts[0]->name : "" ) )?>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr>
+                       <td>Address</td>
+                       <td>
+                            <div class="field">
+                                <?=form_input( array("name"=>"address", "class"=>"ui input large", "style"=>"width:550px", "value" => isset($contacts) ? $contacts[0]->address  : "") )?>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>Phone</td>
-                        <td><?=form_input( array("name"=>"phone", "class"=>"ui input large", "style"=>"width:550px") )?></td>
+                        <td>
+                            <div class="field">
+                                <?=form_input( array("name"=>"phone", "class"=>"ui input large", "style"=>"width:550px", "value" => isset($contacts) ? $contacts[0]->phone : "") )?>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td></td>

@@ -13,9 +13,10 @@ class P6 extends CI_Controller {
         }
 
         $data['title']="Home";
-        $data['contacts'] = $this->p6_model->get($search);
+        $data['contacts'] = $this->p6_model->get($search, false);
 
         $this->load->view('p6home',$data);
+        
     }
 
     public function save() {
@@ -26,9 +27,17 @@ class P6 extends CI_Controller {
         $this->index();
     }
 
-    public function form() { //form
-        $data['title'] = "Form";
+    public function form($id = "") { //form
+        $this->load->model('p6_model');
         $this->load->helper('form');
-        $this->load->view('p6form',$data);
+
+        $data['title'] = "Form";
+        
+        if (!empty($id)){
+            $data['id'] = $id;
+            $data['contacts'] = $this->p6_model->get(false, $id);
+        }
+
+        $this->load->view('p6form', $data);
     }
 }

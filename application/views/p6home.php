@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?= form_open("/p6/", array("class" => "ui form", "method" => "get")) ?>
                 <div class="ui two column grid">
                     <div class="four wide column">
-                        <?= form_input( array("name" => "keyword", "class" => "ui input large", "value" => $keyword ?? "" ) ) ?>
+                        <?= form_input( array("name" => "keyword", "class" => "ui input large", "value" => $keyword = "" ) ) ?>
                     </div>
                     <div class="two wide column">
                         <?= form_submit('submit', 'Search', array("class" => "ui primary button")) ?>
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Phone</th> 
                             <th>Options</th>
                         </tr>
-                    </thead>
+                    </thead> 
                     <tbody>
                         <?php
                             foreach ($contacts as $data){
@@ -49,6 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <td data-label="Address"><?=$data->address?></td>
                             <td data-label="Phone"><?=$data->phone?></td>
                             <td data-label="Options">
+                                <a class="ui button" href="/p6/form/<?=$data->id?>">
+                                    <i class="edit icon"></i>
+                                    Edit
+                                </a>
                                 <a class="ui red button" href="/p7/delete/<?=$data->id?>">
                                     <i class="trash icon"></i>
                                     Delete

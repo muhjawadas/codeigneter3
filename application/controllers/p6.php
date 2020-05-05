@@ -37,7 +37,7 @@ class P6 extends CI_Controller {
             $data['id'] = $id;
             $data['contacts'] = $this->p6_model->get(false, $id);
         }
-
+        // print_r($data);die; -> for debugging output
         $this->load->view('p6form', $data);
     }
 }

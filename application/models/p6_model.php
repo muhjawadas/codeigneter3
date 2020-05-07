@@ -23,14 +23,17 @@ class P6_model extends CI_Model {
                 "name" => $val["name"],
                 "address" => $val["address"],
                 "phone" => $val["phone"],
+                "picture" => $val['picture']
             );
             $this->db->where('id', $val['id']);
             return $this->db->update('contacts', $data_to_update);
         } else {
+            //print_r($val);die; -> check data output
             $data_to_insert = array(
                 "name" => $val["name"],
                 "address" => $val["address"],
-                "phone" => $val["phone"]
+                "phone" => $val["phone"],
+                "picture" => $val['picture']
             );
         return $this->db->insert('contacts', $data_to_insert);
         }

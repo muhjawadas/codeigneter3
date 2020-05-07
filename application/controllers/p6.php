@@ -15,6 +15,8 @@ class P6 extends CI_Controller {
         $data['title']="Home";
         $data['contacts'] = $this->p6_model->get($search, false);
 
+        //print_r($data);die;
+        
         $this->load->view('p6home',$data);
         
     }
@@ -22,9 +24,24 @@ class P6 extends CI_Controller {
     public function save() {
         $this->load->model("p6_model");
         $data = $this->input->post();
+
+        if (!empty($_FILES['userfile']['name'])) {
+            $customName = preg_replace(array('/\s/', '/\.[\.]+/', '/[^\w_\.\-]/'), array('_', '.', ''), $_FILES['userfile']['name']);
+            $config['upload_path'] = './assets/';
+            $config['allowed_types'] = 'gif|png|jpg';
+            $config['max_size'] = 1000;
+            $config['file_name'] = $customName;
+
+            $data['picture'] =  $customName;
+    
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+
+        }
+
         $data = $this->p6_model->save($data);
 
-        $this->index();
+        return header('location:/p6/');
     }
 
     public function form($id = "") { //form
@@ -37,7 +54,6 @@ class P6 extends CI_Controller {
             $data['id'] = $id;
             $data['contacts'] = $this->p6_model->get(false, $id);
         }
-        // print_r($data);die; -> for debugging output
         $this->load->view('p6form', $data);
     }
 }

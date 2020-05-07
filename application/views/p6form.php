@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="ui two column grid">
             <div class="two wide column"></div>
             <div class="eight wide column">
-                <?=form_open("/p6/save", array("class" => "ui form")); ?>
+                <?= form_open_multipart("/p6/save", array("class" => "ui form")); ?>
                 <?= form_input( array("name" => "id", "type" => "hidden", "value" => isset($id) ? $id : "") ); ?>
                 <table class="ui celled table">
                     <tr>
@@ -45,6 +45,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td>
                             <div class="field">
                                 <?=form_input( array("name"=>"phone", "class"=>"ui input large", "style"=>"width:550px", "value" => isset($contacts) ? $contacts[0]->phone : "") )?>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Picture Profile</td>
+                        <td>
+                            <?php if (isset($contacts) && isset($contacts[0]->picture)) { ?>
+                                <img src="/assets/<?=$contacts[0]->picture?>" alt="<?=$contacts[0]->name?>">
+                            <?php } ?>
+                            <div class="field"> 
+                                <input type="file" name="userfile" size="20" />
                             </div>
                         </td>
                     </tr>

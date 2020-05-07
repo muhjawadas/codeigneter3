@@ -34,6 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <table class="ui celled table">
                     <thead>
                         <tr>
+                            <th>Profile Picture</th>
                             <th>Name</th>
                             <th>Address</th>
                             <th>Phone</th> 
@@ -45,6 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             foreach ($contacts as $data){
                         ?>
                         <tr>
+                            <td data-label="Picture">
+                                <img src="/assets/<?=$data->picture?>" alt="<?=$data->name?>">
+                            </td>
                             <td data-label="Name"><?=$data->name?></td>
                             <td data-label="Address"><?=$data->address?></td>
                             <td data-label="Phone"><?=$data->phone?></td>

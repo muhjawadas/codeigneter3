@@ -3,22 +3,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class P6 extends CI_Controller {
 
+    public function __construct(){
+        parent::__construct();
+        $this->load->helper(array('form','url','html'));
+        $username = $this->session->userdata('username');
+        if ($username == ""){
+            redirect("p7");
+        }
+    }
+    
     public function index() {
+        
+            
         $this->load->model("p6_model");
-
+            
         $this->load->helper('form');
         $search = $this->input->get();
         if (isset($search['keyword'])) {
             $data['keyword'] = $search['keyword'];
         }
-
+            
+            
         $data['title']="Home";
         $data['contacts'] = $this->p6_model->get($search, false);
-
-        //print_r($data);die;
-        
-        $this->load->view('p6home',$data);
-        
+            
+            //print_r($data);die;
+            
+        $this->load->view('p6home',$data); 
     }
 
     public function save() {

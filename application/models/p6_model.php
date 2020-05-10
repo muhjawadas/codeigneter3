@@ -17,7 +17,7 @@ class P6_model extends CI_Model {
 
     public function save($val) {
         $this->load->model('P6_model');
-
+        
         if (isset($val['id']) && $val['id'] != "") {
             $data_to_update = array(
                 "name" => $val["name"],
@@ -35,6 +35,7 @@ class P6_model extends CI_Model {
                 "phone" => $val["phone"],
                 "picture" => $val['picture']
             );
+        
         return $this->db->insert('contacts', $data_to_insert);
         }
     }

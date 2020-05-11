@@ -12,9 +12,7 @@ class P6 extends CI_Controller {
         }
     }
     
-    public function index() {
-        
-            
+    public function index() {            
         $this->load->model("p6_model");
             
         $this->load->helper('form');

@@ -13,10 +13,10 @@ class P14 extends CI_Controller {
         $this->load->view('p14');
     }
 
-    public function data14() { 
-        $data14 = $this->P14_model->get();
+    public function contacts() { 
+        $contacts = $this->P14_model->get();
         header('Content-Type: application/json');
-        echo json_encode($data14);
+        echo json_encode($contacts);
     }    
 
     public function save($id = null) { 

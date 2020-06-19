@@ -34,13 +34,12 @@ class P14_model extends CI_Model {
                 "phone" => $val["phone"]
             );
         
-        return $this->db->insert('contacts', $data_to_insert);
+        return $this->db->insert('data14', $data_to_insert);
         }
     }
 
     public function delete($id) {
         $this->db->where('id', $id);
-        return $this->db->delete('contacts');
+        return $this->db->delete('data14');
     }
 }
-?>

@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         class="easyui-datagrid"
         title="My Contacts"
         style="width: 700px; height: 250px;"
-        data-options="singeSelect:true,collapsible:true,url:'/p14/data14',method:'get'" 
+        data-options="singeSelect:true,collapsible:true,url:'/p14/contacts',method:'get'" 
     >
         <thead>
             <tr>
@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $("#form-dialog")
                 .dialog("open")
                 .dialog("center")
-                .dialog("setTitle", New Contacts");
+                .dialog("setTitle", "New Contacts");
             $("#form-dialog").form("clear");
             url = "p14/save";
         }
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $("#form-contact").form("submit", {
                 url: url, 
                 onSubmit: function () {
-                    return Whis).form("validate");
+                    return $(this).form("validate");
                 },
                 success: function (result) {
                     if (result.errorMsg) {
@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         
         function deleteUser() {
-            var row = $("#datagrid-contacts").datagrid("get5elected");
+            var row = $("#datagrid-contacts").datagrid("getSelected");
             if (row) {
                 $.messager.confirm( 
                     "Confirm", 
